@@ -12,4 +12,8 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
+export const getData = (path) => {
+  return API.get(path);
+};
+
 export default API;
