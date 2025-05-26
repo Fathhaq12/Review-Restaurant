@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://review-restoran-dot-b-01-450713.uc.r.appspot.com",
     credentials: true,
   })
 );

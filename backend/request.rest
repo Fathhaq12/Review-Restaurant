@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:5000
+@baseUrl = https://be-review-restoran-1061342868557.us-central1.run.app
 @accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyMiIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTc0ODIyMzE0MCwiZXhwIjoxNzQ4MjI0OTQwfQ.4tUQaxod94ftvHiNP7CNi_pqCuE4rUv8DQtzN0lmvqk
 // ========================
 // 🔐 AUTH (Login & Register)
