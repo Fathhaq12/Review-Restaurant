@@ -1,1 +1,1 @@
-export const BASE_URL = "https://review-restoran-dot-b-01-450713.uc.r.appspot.com";
+export const BASE_URL = "https://be-review-restoran-1061342868557.us-central1.run.app";
