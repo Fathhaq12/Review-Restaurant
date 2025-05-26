@@ -35,7 +35,7 @@ export default function RestaurantList() {
       try {
         const token = localStorage.getItem("accessToken");
         console.log("Token:", token); // Debug: Pastikan token ada
-        const res = await axios.get(`${BASE_URL}/users/me`, {
+        const res = await axios.get(`${BASE_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(res.data.username || "User");

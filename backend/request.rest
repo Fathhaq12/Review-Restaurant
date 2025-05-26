@@ -1,5 +1,5 @@
 @baseUrl = https://be-review-restoran-1061342868557.us-central1.run.app
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyMiIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTc0ODIyMzE0MCwiZXhwIjoxNzQ4MjI0OTQwfQ.4tUQaxod94ftvHiNP7CNi_pqCuE4rUv8DQtzN0lmvqk
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhcmFwcCIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYXJhcHBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDgyNzY1NzAsImV4cCI6MTc0ODI3ODM3MH0.3oAJwt07KKWD--L_268eEhxSWOCRHuWVwomg69-8X90
 // ========================
 // 🔐 AUTH (Login & Register)
 // ========================
@@ -12,6 +12,10 @@ Content-Type: application/json
   "username": "arapp",
   "password": "123"
 }
+
+###
+GET {{baseUrl}}/api/users/me
+Authorization: Bearer {{accessToken}}
 
 
 ### 🔐 Login (User)

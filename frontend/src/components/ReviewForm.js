@@ -25,7 +25,7 @@ export default function ReviewForm({ restaurantId }) {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get(`${BASE_URL}/users/me`, {
+        const res = await axios.get(`${BASE_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserId(res.data.id);
