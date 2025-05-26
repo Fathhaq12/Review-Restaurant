@@ -1,0 +1,176 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #4e342e;
+  background: linear-gradient(135deg, #fff8e7 0%, #f5e1a4 100%);
+  min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Restaurant Grid */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.restaurant-card {
+  background: #fff8e7;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(78, 52, 46, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid #f5e1a4;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(78, 52, 46, 0.15);
+  border-color: #d35400;
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #4e342e;
+}
+
+.location {
+  color: #839192;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.location::before {
+  content: "📍";
+}
+
+.category {
+  display: inline-block;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #d35400, #839192);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
+  margin-top: auto; /* Ini akan mendorong button ke bawah */
+  align-self: flex-start; /* Agar button tidak full width */
+}
+
+/* Loading and Error States */
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #839192;
+  background: #fff8e7;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(78, 52, 46, 0.1);
+  border: 2px solid #f5e1a4;
+}
+
+.loading::before {
+  content: "🍽️";
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: #d35400;
+}
+
+.error::before {
+  content: "❌";
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.restaurant-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.restaurant-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.restaurant-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.restaurant-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

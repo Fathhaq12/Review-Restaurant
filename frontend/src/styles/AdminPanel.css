@@ -1,0 +1,695 @@
+.admin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+}
+
+/* Header Styles */
+.header {
+  background: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid #f97316;
+  margin-bottom: 1.5rem; /* Added margin to separate from content */
+}
+
+.header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem; /* Increased height slightly */
+}
+
+@media (min-width: 640px) {
+  .header-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-content {
+    padding: 0 2rem;
+  }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap */
+}
+
+.logo-container {
+  background: #ffffff;
+  padding: 0.75rem; /* Increased padding */
+  border-radius: 0.5rem;
+}
+
+.store-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ef4444;
+  color: white;
+  padding: 0.5rem 1.25rem; /* Increased padding */
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+.logout-icon {
+  font-size: 1rem;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem; /* Reduced top padding since header has margin now */
+}
+
+@media (min-width: 640px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    padding: 2rem;
+  }
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem; /* Increased margin */
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem; /* Increased padding */
+}
+
+.restaurant-stat {
+  border-left: 4px solid #f97316;
+}
+
+.menu-stat {
+  border-left: 4px solid #f59e0b;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* Added explicit gap */
+}
+
+.stat-icon-container {
+  padding: 1rem; /* Increased padding */
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.restaurant-icon-bg {
+  background: #fed7aa;
+}
+
+.menu-icon-bg {
+  background: #fde68a;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.5rem 0; /* Increased bottom margin */
+}
+
+.stat-number {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.restaurant-number {
+  color: #f97316;
+}
+
+.menu-number {
+  color: #f59e0b;
+}
+
+/* Management Sections */
+.management-section {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 2.5rem; /* Increased margin between sections */
+}
+
+.section-header {
+  padding: 1.5rem 2rem; /* Increased padding */
+}
+
+.restaurant-header {
+  background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+}
+
+.menu-header {
+  background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+}
+
+.section-title {
+  font-size: 1.375rem; /* Increased font size */
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 0.75rem; /* Added gap instead of margin-right */
+}
+
+.section-title {
+  font-size: 1.375rem; /* Increased font size */
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 0.75rem; /* Added gap instead of margin-right */
+}
+
+.section-icon {
+  font-size: 1.5rem;
+}
+
+/* Forms */
+.form-container {
+  padding: 2rem; /* Increased padding */
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Increased gap */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Increased gap */
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.menu-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Increased gap */
+}
+
+@media (min-width: 768px) {
+  .menu-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-form-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Added gap between label and input */
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0; /* Removed margin since we use gap now */
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Increased padding */
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.875rem;
+  box-sizing: border-box; /* Ensure proper sizing */
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+.menu-input:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+/* Current Image Info */
+.current-image-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem; /* Increased padding */
+  background: #dbeafe;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem; /* Added margin */
+}
+
+.current-image-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1d4ed8;
+}
+
+.current-image {
+  width: 4rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid #93c5fd;
+}
+
+.no-image-text {
+  color: #3b82f6;
+  font-style: italic;
+}
+
+/* Image Upload */
+.image-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f3f4f6;
+  padding: 0.75rem 1.25rem; /* Increased padding */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1px solid #d1d5db;
+}
+
+.file-label:hover {
+  background: #e5e7eb;
+}
+
+.upload-icon {
+  color: #6b7280;
+}
+
+.file-selected {
+  font-size: 0.875rem;
+  color: #059669;
+  padding: 0.25rem 0; /* Added padding */
+}
+
+/* Form Buttons */
+.form-buttons {
+  display: flex;
+  gap: 1rem; /* Increased gap */
+  flex-wrap: wrap;
+  margin-top: 1rem; /* Added top margin */
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.75rem 2rem; /* Increased padding */
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.restaurant-btn {
+  background: #f97316;
+}
+
+.restaurant-btn:hover {
+  background: #ea580c;
+}
+
+.menu-btn {
+  background: #f59e0b;
+}
+
+.menu-btn:hover {
+  background: #d97706;
+}
+
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #6b7280;
+  color: white;
+  padding: 0.75rem 2rem; /* Increased padding */
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1rem; /* Added margin to separate from form */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background: #f3f4f6;
+}
+
+.table-th {
+  padding: 1rem 1.5rem; /* Increased padding */
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-body {
+  background: white;
+}
+
+.table-row {
+  transition: background-color 0.2s;
+}
+
+.table-row:hover {
+  background: #f9fafb;
+}
+
+.table-row:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-td {
+  padding: 1.25rem 1.5rem; /* Increased padding */
+  white-space: nowrap;
+  vertical-align: middle; /* Better alignment */
+}
+
+.table-image {
+  width: 4rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.no-image-placeholder {
+  width: 4rem;
+  height: 3rem;
+  background: #e5e7eb;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-image-text-small {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.table-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.table-location, .table-price {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.table-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem; /* Increased padding */
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.restaurant-badge {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.menu-badge {
+  background: #fde68a;
+  color: #92400e;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem; /* Increased gap */
+}
+
+.action-btn {
+  padding: 0.5rem; /* Increased padding */
+  border-radius: 0.375rem; /* Slightly larger radius */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+  min-width: 2rem; /* Minimum width for better touch targets */
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn {
+  color: #2563eb;
+  background: transparent;
+}
+
+.edit-btn:hover {
+  background: #dbeafe;
+}
+
+.delete-btn {
+  color: #dc2626;
+  background: transparent;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.25rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem; /* Increased from 1rem */
+  }
+  
+  .table-th, .table-td {
+    padding: 0.75rem; /* Increased padding */
+    font-size: 0.875rem;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+    gap: 0.75rem; /* Added gap */
+  }
+  
+  .submit-btn, .cancel-btn {
+    justify-content: center;
+    width: 100%; /* Full width on mobile */
+  }
+  
+  .stats-grid {
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem; /* Increased padding */
+  }
+  
+  .management-section {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .table-container {
+    font-size: 0.75rem;
+  }
+  
+  .table-description {
+    max-width: 8rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .image-upload-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Animation and Transitions */
+.table-row, .action-btn, .submit-btn, .cancel-btn, .logout-btn, .file-label {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus States for Accessibility */
+.form-input:focus,
+.form-select:focus,
+.action-btn:focus,
+.submit-btn:focus,
+.cancel-btn:focus,
+.logout-btn:focus,
+.file-label:focus {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.submit-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Improved spacing for form elements */
+.form-field:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+/* Better spacing for current image section */
+.current-image-info + .form-field {
+  margin-top: 0.5rem;
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .form-container,
+  .action-buttons {
+    display: none;
+  }
+  
+  .admin-container {
+    background: white;
+  }
+  
+  .management-section {
+    box-shadow: none;
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+  }
+}   

@@ -1,0 +1,162 @@
+@baseUrl = http://localhost:5000
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyMiIsInJvbGUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTc0ODIyMzE0MCwiZXhwIjoxNzQ4MjI0OTQwfQ.4tUQaxod94ftvHiNP7CNi_pqCuE4rUv8DQtzN0lmvqk
+// ========================
+// 🔐 AUTH (Login & Register)
+// ========================
+
+### 🔐 Login (Admin/User)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "arapp",
+  "password": "123"
+}
+
+
+### 🔐 Login (User)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "password": "userpassword"
+}
+
+### 📝 Register (User)
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "email": "user2@example.com",
+  "password": "userpassword"
+}
+
+### 📝 Register Admin (arapp)
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "arapp",
+  "email": "arapp@example.com",
+  "password": "123"
+}
+
+### 🔄 Refresh Token
+GET {{baseUrl}}/api/auth/refresh-token
+
+// ========================
+// 🍽️ RESTORAN
+// ========================
+
+### 📋 Get semua restoran (login required)
+GET {{baseUrl}}/api/restaurants
+Authorization: Bearer {{accessToken}}
+
+### 🔍 Get restoran by ID
+GET {{baseUrl}}/api/restaurants/1
+Authorization: Bearer {{accessToken}}
+
+### ➕ Tambah restoran (admin only)
+POST {{baseUrl}}/api/restaurants
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Resto Enak",
+  "location": "Jalan ABC No. 1",
+  "category": "Makan enak"
+}
+
+### ✏️ Update restoran (admin only)
+PUT {{baseUrl}}/api/restaurants/1
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Resto Updated",
+  "location": "Jalan XYZ No. 2",
+  "category": "Makan updated"
+}
+
+### 🗑️ Hapus restoran (admin only)
+DELETE {{baseUrl}}/api/restaurants/1
+Authorization: Bearer {{accessToken}}
+
+// ========================
+// 🍛 MENU MAKANAN
+// ========================
+
+### 📋 Get semua menu (login required)
+GET {{baseUrl}}/api/menus
+Authorization: Bearer {{accessToken}}
+
+### 🔍 Get menu by ID
+GET {{baseUrl}}/api/menus/1
+Authorization: Bearer {{accessToken}}
+
+### ➕ Tambah menu (admin only)
+POST {{baseUrl}}/api/menus
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Nasi Goreng",
+  "price": 15000,
+  "description": "Nasi Digoreng",
+  "restaurantId": 2
+}
+
+### ✏️ Update menu (admin only)
+PUT {{baseUrl}}/api/menus/1
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "name": "Nasi Goreng Spesial",
+  "price": 20000,
+  "description": "Nasi Goreng dengan telur",
+  "restaurantId": 1
+}
+
+### 🗑️ Hapus menu (admin only)
+DELETE {{baseUrl}}/api/menus/1
+Authorization: Bearer {{accessToken}}
+
+// ========================
+// ⭐ REVIEW RESTORAN
+// ========================
+
+### 📋 Get semua review (login required)
+GET {{baseUrl}}/api/reviews
+Authorization: Bearer {{accessToken}}
+
+### 🔍 Get review by ID
+GET {{baseUrl}}/api/reviews/1
+Authorization: Bearer {{accessToken}}
+
+### ➕ Tambah review (user only)
+POST {{baseUrl}}/api/reviews
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "comment": "Makanannya enak banget!",
+  "rating": 5,
+  "restaurantId": 1
+}
+
+### ✏️ Update review (user only, hanya review milik sendiri)
+PUT {{baseUrl}}/api/reviews/1
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "comment": "Update review: makin enak!",
+  "rating": 4
+}
+
+### 🗑️ Hapus review (user only, hanya review milik sendiri)
+DELETE {{baseUrl}}/api/reviews/1
+Authorization: Bearer {{accessToken}}
