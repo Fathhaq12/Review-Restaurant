@@ -18,7 +18,7 @@ export default function Header() {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.post(
-        `${BASE_URL}/auth/logout`,
+        `${BASE_URL}/api/auth/logout`,
         {},
         {
           headers: {

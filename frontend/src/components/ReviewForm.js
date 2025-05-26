@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +45,7 @@ export default function ReviewForm({ restaurantId }) {
       const token = localStorage.getItem("accessToken");
 
       await axios.post(
-        `${BASE_URL}/reviews`,
+        `${BASE_URL}/api/reviews`,
         {
           restaurantId: parseInt(restaurantId),
           rating: parseInt(formData.rating),

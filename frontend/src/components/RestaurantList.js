@@ -16,7 +16,7 @@ export default function RestaurantList() {
     const fetchRestaurants = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const response = await axios.get(`${BASE_URL}/restaurants`, {
+        const response = await axios.get(`${BASE_URL}/api/restaurants`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRestaurants(response.data);

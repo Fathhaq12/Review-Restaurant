@@ -8,13 +8,13 @@ import { BASE_URL } from "../utils";
 
 export default function Home() {
   const [username, setUsername] = useState("User");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get(`${BASE_URL}/users/me`, {
+        const res = await axios.get(`${BASE_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(res.data.username || "User");
