@@ -48,10 +48,7 @@ export default function RestaurantDetail() {
           <div className="restaurant-header">
             {resto.image && (
               <div className="restaurant-image">
-                <img
-                  src={`${process.env.PUBLIC_URL}${resto.image}`}
-                  alt={resto.name}
-                />
+                <img src={resto.image} alt={resto.name} />
               </div>
             )}
             <h2>{resto.name}</h2>

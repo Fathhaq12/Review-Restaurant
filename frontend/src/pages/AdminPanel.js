@@ -193,7 +193,9 @@ export default function AdminPanel() {
               </div>
               <div className="stat-info">
                 <h3 className="stat-label">Total Restaurants</h3>
-                <p className="stat-number restaurant-number">{restaurants.length}</p>
+                <p className="stat-number restaurant-number">
+                  {restaurants.length}
+                </p>
               </div>
             </div>
           </div>
@@ -218,7 +220,7 @@ export default function AdminPanel() {
               Restaurant Management
             </h2>
           </div>
-          
+
           {/* Restaurant Form */}
           <div className="form-container">
             <form onSubmit={handleSubmit} className="form">
@@ -257,21 +259,13 @@ export default function AdminPanel() {
                   />
                 </div>
               </div>
-              
+
               {editId && (
                 <div className="current-image-info">
                   <span className="current-image-label">Current image:</span>
                   {restaurants.find((r) => r.id === editId)?.image ? (
                     <img
-                      src={
-                        restaurants
-                          .find((r) => r.id === editId)
-                          .image.startsWith("/images/")
-                          ? restaurants.find((r) => r.id === editId).image
-                          : `/images/${
-                              restaurants.find((r) => r.id === editId).image
-                            }`
-                      }
+                      src={restaurants.image}
                       alt="Current restaurant"
                       className="current-image"
                     />
@@ -280,7 +274,7 @@ export default function AdminPanel() {
                   )}
                 </div>
               )}
-              
+
               <div className="form-field">
                 <label className="form-label">Restaurant Image</label>
                 <div className="image-upload-container">
@@ -295,10 +289,14 @@ export default function AdminPanel() {
                     <span className="upload-icon">📤</span>
                     <span>Choose Image</span>
                   </label>
-                  {image && <span className="file-selected">Image selected: {image.name}</span>}
+                  {image && (
+                    <span className="file-selected">
+                      Image selected: {image.name}
+                    </span>
+                  )}
                 </div>
               </div>
-              
+
               <div className="form-buttons">
                 <button type="submit" className="submit-btn restaurant-btn">
                   <span className="btn-icon">➕</span>
@@ -398,7 +396,7 @@ export default function AdminPanel() {
               Menu Management
             </h2>
           </div>
-          
+
           {/* Menu Form */}
           <div className="form-container">
             <form onSubmit={handleMenuSubmit} className="form">
@@ -455,7 +453,7 @@ export default function AdminPanel() {
                   </select>
                 </div>
               </div>
-              
+
               <div className="form-buttons">
                 <button type="submit" className="submit-btn menu-btn">
                   <span className="btn-icon">➕</span>
@@ -502,14 +500,17 @@ export default function AdminPanel() {
                       <div className="table-name">{m.name}</div>
                     </td>
                     <td className="table-td">
-                      <div className="table-price">Rp {parseInt(m.price).toLocaleString()}</div>
+                      <div className="table-price">
+                        Rp {parseInt(m.price).toLocaleString()}
+                      </div>
                     </td>
                     <td className="table-td">
                       <div className="table-description">{m.description}</div>
                     </td>
                     <td className="table-td">
                       <span className="category-badge menu-badge">
-                        {restaurants.find((r) => r.id === m.restaurantId)?.name || "-"}
+                        {restaurants.find((r) => r.id === m.restaurantId)
+                          ?.name || "-"}
                       </span>
                     </td>
                     <td className="table-td">

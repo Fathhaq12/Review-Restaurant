@@ -19,10 +19,13 @@ const Login = () => {
     setIsLoading(true);
     setError("");
     try {
-      const response = await API.post("https://be-restoran-1061342868557.us-central1.run.app/api/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://be-restoran-1061342868557.us-central1.run.app/api/auth/login",
+        {
+          username,
+          password,
+        }
+      );
       console.log("Token received:", response.data.accessToken); // Debug: Pastikan token diterima
       localStorage.setItem("accessToken", response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
