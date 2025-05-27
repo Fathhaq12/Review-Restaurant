@@ -8,7 +8,7 @@ import {
 } from "../controller/RestoController.js";
 import { verifyToken } from "../middleware/verifytoken.js";
 import { isAdmin } from "../middleware/isAdmin.js";
-import upload from "../middleware/uploadImage.js";
+import { uploadImage } from "../middleware/uploadImage.js";
 
 const router = express.Router();
 
@@ -18,14 +18,14 @@ router.post(
   "/",
   verifyToken,
   isAdmin,
-  upload.single("image"),
+  uploadImage.single("image"),
   createRestaurant
 );
 router.put(
   "/:id",
   verifyToken,
   isAdmin,
-  upload.single("image"),
+  uploadImage.single("image"),
   updateRestaurant
 );
 router.delete("/:id", verifyToken, isAdmin, deleteRestaurant);
