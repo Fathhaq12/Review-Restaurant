@@ -1,18 +1,18 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/$PROJECT_ID/be-review-restoran", "."]
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/be-restoran", "."]
     dir: "backend"
 
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/be-review-restoran"]
+    args: ["push", "gcr.io/$PROJECT_ID/be-restoran"]
 
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       - run
       - deploy
-      - be-review-restoran
+      - be-restoran
       - --image
-      - gcr.io/$PROJECT_ID/be-review-restoran
+      - gcr.io/$PROJECT_ID/be-restoran
       - --timeout
       - 1000s
       - --port
