@@ -1,1 +1,1 @@
-export const BASE_URL = "https://be-review-restoran-1061342868557.us-central1.run.app/api";
+export const BASE_URL = "https://be-restoran-1061342868557.us-central1.run.app/api";

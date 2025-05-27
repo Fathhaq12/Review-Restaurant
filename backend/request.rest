@@ -1,4 +1,4 @@
-@baseUrl = https://be-review-restoran-1061342868557.us-central1.run.app
+@baseUrl = https://be-restoran-1061342868557.us-central1.run.app
 @accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhcmFwcCIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYXJhcHBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDgyNzY1NzAsImV4cCI6MTc0ODI3ODM3MH0.3oAJwt07KKWD--L_268eEhxSWOCRHuWVwomg69-8X90
 // ========================
 // 🔐 AUTH (Login & Register)
