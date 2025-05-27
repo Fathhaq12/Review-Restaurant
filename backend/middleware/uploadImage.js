@@ -26,7 +26,7 @@ const fileFilter = (_req, file, cb) => {
   cb(new Error("Hanya file gambar (jpg, jpeg, png, gif) yang diizinkan"));
 };
 
-export const uploadImage = multer({
+export const upload = multer({
   storage,
   limits: { fileSize: 2 * 1024 * 1024 }, // 2 MB
   fileFilter,
