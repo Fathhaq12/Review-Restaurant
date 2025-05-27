@@ -16,7 +16,8 @@ export default function MenuList({ restaurantId }) {
       <ul>
         {menus.map((m) => (
           <li key={m.id}>
-            {m.name} - Rp{m.price}
+            {m.name} - Rp{m.price} - {m.description}
+            <span className="restaurant-icon">🍽️</span>
           </li>
         ))}
       </ul>
