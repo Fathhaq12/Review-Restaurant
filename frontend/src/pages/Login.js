@@ -19,7 +19,7 @@ const Login = () => {
     setIsLoading(true);
     setError("");
     try {
-      const response = await API.post("auth/login", {
+      const response = await API.post("https://be-restoran-1061342868557.us-central1.run.app/api/auth/login", {
         username,
         password,
       });

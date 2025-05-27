@@ -22,9 +22,18 @@ export const getRestaurantById = async (req, res) => {
 
 export const createRestaurant = async (req, res) => {
   try {
-    let imagePath = null;
+    // let imagePath = null;
+    // if (req.file) {
+    //   imagePath = `/images/${req.file.filename}`;
+    // }
+
+    let imagePath = req.body.image || null;
     if (req.file) {
-      imagePath = `/images/${req.file.filename}`;
+      imagePath = `${req.protocol}://${req.get("host")}/uploads/${
+        req.file.filename
+      }`;
+    } else if (!imagePath) {
+      return res.status(400).json({ message: "Image is required" });
     }
     const newRestaurant = await Restaurant.create({
       name: req.body.name,
@@ -51,9 +60,13 @@ export const updateRestaurant = async (req, res) => {
       category: req.body.category,
     };
 
-    // Jika ada file baru, update juga field image
+    let imagePath = req.body.image || null;
     if (req.file) {
-      updateData.image = `/images/${req.file.filename}`;
+      imagePath = `${req.protocol}://${req.get("host")}/uploads/${
+        req.file.filename
+      }`;
+    } else if (!imagePath) {
+      imagePath = restaurant.image;
     }
 
     await restaurant.update(updateData);

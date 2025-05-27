@@ -32,10 +32,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Serve static files from the images directory
-app.use(
-  "/images",
-  express.static(path.resolve("..", "frontend", "public", "images"))
-);
+app.use('/uploads', express.static('uploads'));
+
 
 // Routes
 app.use("/api/auth", authRoutes);
