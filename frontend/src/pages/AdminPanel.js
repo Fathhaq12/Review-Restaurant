@@ -338,11 +338,7 @@ export default function AdminPanel() {
                     <td className="table-td">
                       {r.image ? (
                         <img
-                          src={
-                            r.image && r.image.startsWith("/images/")
-                              ? r.image
-                              : `/images/${r.image}`
-                          }
+                          src={r.image}
                           alt={r.name}
                           className="table-image"
                         />
