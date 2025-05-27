@@ -15,8 +15,6 @@ steps:
       - gcr.io/$PROJECT_ID/be-restoran
       - --timeout
       - 1000s
-      - --port
-      - "5000"
       - --region
       - us-central1
       - --allow-unauthenticated

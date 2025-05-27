@@ -17,13 +17,15 @@ import "./model/ReviewModel.js";
 import path from "path";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(
   cors({
     origin: "https://review-restoran-dot-b-01-450713.uc.r.appspot.com",
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(express.json());
@@ -50,7 +52,7 @@ app.use("/api/reviews", reviewRoutes);
     await sequelize.sync({ alter: true }); // auto migration, hati2 di production
     console.log("Database synchronized...");
     app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error("Database connection error:", error.message);
