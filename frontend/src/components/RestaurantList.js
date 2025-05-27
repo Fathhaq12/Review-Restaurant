@@ -16,7 +16,7 @@ export default function RestaurantList() {
     const fetchRestaurants = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const response = await axios.get(`${BASE_URL}/api/restaurants`, {
+        const response = await axios.get(`${BASE_URL}/restaurants`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRestaurants(response.data);
@@ -35,7 +35,7 @@ export default function RestaurantList() {
       try {
         const token = localStorage.getItem("accessToken");
         console.log("Token:", token); // Debug: Pastikan token ada
-        const res = await axios.get(`${BASE_URL}/api/users/me`, {
+        const res = await axios.get(`${BASE_URL}/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(res.data.username || "User");

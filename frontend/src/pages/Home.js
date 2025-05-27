@@ -14,7 +14,7 @@ export default function Home() {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get(`${BASE_URL}/api/users/me`, {
+        const res = await axios.get(`${BASE_URL}/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(res.data.username || "User");

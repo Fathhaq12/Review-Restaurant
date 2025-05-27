@@ -25,7 +25,7 @@ export default function ReviewForm({ restaurantId }) {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get(`${BASE_URL}/api/users/me`, {
+        const res = await axios.get(`${BASE_URL}/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserId(res.data.id);
@@ -45,7 +45,7 @@ export default function ReviewForm({ restaurantId }) {
       const token = localStorage.getItem("accessToken");
 
       await axios.post(
-        `${BASE_URL}/api/reviews`,
+        `${BASE_URL}/reviews`,
         {
           restaurantId: parseInt(restaurantId),
           rating: parseInt(formData.rating),
