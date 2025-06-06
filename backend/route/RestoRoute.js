@@ -12,6 +12,11 @@ import { uploadImage } from "../middleware/uploadImage.js";
 
 const router = express.Router();
 
+// Public routes (no authentication required) - untuk reviewapp
+router.get("/public", getRestaurants);
+router.get("/public/:id", getRestaurantById);
+
+// Protected routes (authentication required)
 router.get("/", verifyToken, getRestaurants);
 router.get("/:id", verifyToken, getRestaurantById);
 router.post(

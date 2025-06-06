@@ -164,3 +164,25 @@ Content-Type: application/json
 ### 🗑️ Hapus review (user only, hanya review milik sendiri)
 DELETE {{baseUrl}}/api/reviews/1
 Authorization: Bearer {{accessToken}}
+
+// ========================
+// 🔓 PUBLIC ENDPOINTS (No Auth Required) - untuk reviewapp
+// ========================
+
+### 📋 Get semua restoran (public - no auth)
+GET {{baseUrl}}/api/restaurants/public
+
+### 🔍 Get restoran by ID (public)
+GET {{baseUrl}}/api/restaurants/public/1
+
+### 📋 Get semua menu (public - no auth)
+GET {{baseUrl}}/api/menus/public
+
+### 🔍 Get menu by restaurant (public)
+GET {{baseUrl}}/api/menus/public/restaurant/1
+
+### 📋 Get semua review (public - no auth)
+GET {{baseUrl}}/api/reviews/public
+
+### 🔍 Get review by restaurant (public)
+GET {{baseUrl}}/api/reviews/public/restaurant/1
