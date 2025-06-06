@@ -35,7 +35,12 @@ export const createReview = async (req, res) => {
     // Get userId from authenticated user (set by verifyToken middleware)
     const userId = req.userId;
 
+    console.log("User ID from token:", userId);
+    console.log("User data:", req.user);
+    console.log("Request body:", req.body);
+
     if (!userId) {
+      console.log("No userId found in request");
       return res.status(401).json({ message: "User authentication required" });
     }
 
@@ -66,6 +71,8 @@ export const createReview = async (req, res) => {
       reviewData.menuId = parseInt(menuId);
     }
 
+    console.log("Creating review with data:", reviewData);
+
     const newReview = await Review.create(reviewData);
 
     // Fetch the review with user data for response
@@ -78,6 +85,7 @@ export const createReview = async (req, res) => {
       ],
     });
 
+    console.log("Review created successfully:", reviewWithUser);
     res.status(201).json(reviewWithUser);
   } catch (error) {
     console.error("Error creating review:", error);

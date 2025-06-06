@@ -177,9 +177,9 @@ export const deleteUser = async (req, res) => {
 // GET PROFILE
 export const getProfile = async (req, res) => {
   try {
-    // Ambil user berdasarkan ID dari token (req.user.id)
-    const user = await User.findByPk(req.user.id, {
-      attributes: ["id", "username", "email", "role"], // Pilih atribut yang ingin dikembalikan
+    // Use req.userId from verifyToken middleware
+    const user = await User.findByPk(req.userId, {
+      attributes: ["id", "username", "email", "role"],
     });
 
     if (!user) {

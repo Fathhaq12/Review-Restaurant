@@ -19,10 +19,18 @@ export const verifyToken = (req, res, next) => {
       });
     }
 
-    // Set userId from decoded token
+    // Set user data from decoded token for compatibility with all middleware
     req.userId = decoded.id;
     req.username = decoded.username;
     req.userRole = decoded.role;
+    
+    // Also set req.user for middleware compatibility
+    req.user = {
+      id: decoded.id,
+      username: decoded.username,
+      role: decoded.role,
+      email: decoded.email
+    };
 
     next();
   });

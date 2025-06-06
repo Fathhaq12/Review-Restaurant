@@ -8,15 +8,17 @@ import {
   getReviewsByRestaurant,
 } from "../controller/ReviewController.js";
 import { verifyToken } from "../middleware/verifytoken.js";
-import { isUser } from "../middleware/isUser.js";
 
 const router = express.Router();
 
+// Public routes (with authentication)
 router.get("/", verifyToken, getReviews);
 router.get("/:id", verifyToken, getReviewById);
-router.post("/", verifyToken, isUser, createReview);
-router.put("/:id", verifyToken, isUser, updateReview);
-router.delete("/:id", verifyToken, isUser, deleteReview);
 router.get("/restaurant/:restaurantId", verifyToken, getReviewsByRestaurant);
+
+// User routes - remove isUser middleware since verifyToken is sufficient
+router.post("/", verifyToken, createReview);
+router.put("/:id", verifyToken, updateReview);
+router.delete("/:id", verifyToken, deleteReview);
 
 export default router;
