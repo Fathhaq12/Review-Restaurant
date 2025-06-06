@@ -32,10 +32,59 @@ export const getReviewById = async (req, res) => {
 
 export const createReview = async (req, res) => {
   try {
-    const newReview = await Review.create(req.body);
-    res.status(201).json(newReview);
+    // Get userId from authenticated user (set by verifyToken middleware)
+    const userId = req.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "User authentication required" });
+    }
+
+    const { comment, rating, restaurantId, menuId } = req.body;
+
+    // Validate required fields
+    if (!comment || !rating || !restaurantId) {
+      return res.status(400).json({
+        message:
+          "Missing required fields: comment, rating, and restaurantId are required",
+      });
+    }
+
+    // Validate rating range
+    if (rating < 1 || rating > 5) {
+      return res.status(400).json({ message: "Rating must be between 1 and 5" });
+    }
+
+    const reviewData = {
+      userId: userId,
+      comment: comment,
+      rating: parseInt(rating),
+      restaurantId: parseInt(restaurantId),
+    };
+
+    // Add menuId if provided
+    if (menuId) {
+      reviewData.menuId = parseInt(menuId);
+    }
+
+    const newReview = await Review.create(reviewData);
+
+    // Fetch the review with user data for response
+    const reviewWithUser = await Review.findByPk(newReview.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    res.status(201).json(reviewWithUser);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Error creating review:", error);
+    res.status(500).json({
+      message: "Failed to create review",
+      error: error.message,
+    });
   }
 };
 

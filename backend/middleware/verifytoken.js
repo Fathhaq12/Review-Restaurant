@@ -4,19 +4,26 @@ dotenv.config();
 
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
-  if (!authHeader)
-    return res.status(403).json({ message: "Token is required" });
-
-  // Format: "Bearer <token>"
   const token = authHeader && authHeader.split(" ")[1];
-  if (!token) return res.status(403).json({ message: "Token is required" });
 
-  try {
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    req.user = decoded;
-    req.userId = decoded.id; // Tambahkan line ini
-    next();
-  } catch (error) {
-    return res.status(401).json({ message: "Invalid token" });
+  if (!token) {
+    return res.status(401).json({
+      message: "Access token is required",
+    });
   }
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({
+        message: "Invalid or expired token",
+      });
+    }
+
+    // Set userId from decoded token
+    req.userId = decoded.id;
+    req.username = decoded.username;
+    req.userRole = decoded.role;
+
+    next();
+  });
 };
