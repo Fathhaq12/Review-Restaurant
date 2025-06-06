@@ -26,7 +26,6 @@ app.use(
       // "https://review-restoran-dot-b-01-450713.uc.r.appspot.com",
       "http://localhost:3000",
       "http://localhost:8080",
-      "http://localhost:53109",
       // Allow any localhost port for development
       /^http:\/\/localhost:\d+$/
     ],
