@@ -56,7 +56,9 @@ export const createReview = async (req, res) => {
 
     // Validate rating range
     if (rating < 1 || rating > 5) {
-      return res.status(400).json({ message: "Rating must be between 1 and 5" });
+      return res
+        .status(400)
+        .json({ message: "Rating must be between 1 and 5" });
     }
 
     const reviewData = {

@@ -23,13 +23,13 @@ export const verifyToken = (req, res, next) => {
     req.userId = decoded.id;
     req.username = decoded.username;
     req.userRole = decoded.role;
-    
+
     // Also set req.user for middleware compatibility
     req.user = {
       id: decoded.id,
       username: decoded.username,
       role: decoded.role,
-      email: decoded.email
+      email: decoded.email,
     };
 
     next();
