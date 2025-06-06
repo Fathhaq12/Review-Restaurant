@@ -49,14 +49,3 @@ export const deleteMenu = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
-export const getMenusByRestaurant = async (req, res) => {
-    try {
-        const menus = await Menu.findAll({
-            where: { restaurantId: req.params.restaurantId }
-        });
-        res.json(menus || []);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
