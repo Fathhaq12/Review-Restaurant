@@ -4,16 +4,15 @@ import User from "../model/UserModel.js";
 export const getReviews = async (req, res) => {
   try {
     const reviews = await Review.findAll({
-      // where: { restaurantId: req.params.restaurantId }, // Filter berdasarkan restaurantId
       include: [
         {
           model: User,
-          attributes: ["username"], // Ambil hanya username dari tabel User
+          attributes: ["username"],
         },
       ],
     });
 
-    res.json(reviews || []); // Pastikan selalu mengembalikan array
+    res.json(reviews || []);
   } catch (error) {
     console.error("Error fetching reviews:", error);
     res.status(500).json({ message: "Failed to fetch reviews" });
@@ -23,7 +22,9 @@ export const getReviews = async (req, res) => {
 export const getReviewById = async (req, res) => {
   try {
     const review = await Review.findByPk(req.params.id);
-    if (!review) return res.status(404).json({ message: "Review not found" });
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
     res.json(review);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -40,8 +41,7 @@ export const createReview = async (req, res) => {
     console.log("Request body:", req.body);
 
     if (!userId) {
-      console.log("No userId found in request");
-      return res.status(401).json({ message: "User authentication required" });
+      return res.status(401).json({ message: "User ID not found in token" });
     }
 
     const { comment, rating, restaurantId, menuId } = req.body;
@@ -49,16 +49,15 @@ export const createReview = async (req, res) => {
     // Validate required fields
     if (!comment || !rating || !restaurantId) {
       return res.status(400).json({
-        message:
-          "Missing required fields: comment, rating, and restaurantId are required",
+        message: "Comment, rating, and restaurantId are required",
       });
     }
 
     // Validate rating range
     if (rating < 1 || rating > 5) {
-      return res
-        .status(400)
-        .json({ message: "Rating must be between 1 and 5" });
+      return res.status(400).json({
+        message: "Rating must be between 1 and 5",
+      });
     }
 
     const reviewData = {
@@ -101,7 +100,9 @@ export const createReview = async (req, res) => {
 export const updateReview = async (req, res) => {
   try {
     const review = await Review.findByPk(req.params.id);
-    if (!review) return res.status(404).json({ message: "Review not found" });
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
     await review.update(req.body);
     res.json(review);
   } catch (error) {
@@ -112,7 +113,9 @@ export const updateReview = async (req, res) => {
 export const deleteReview = async (req, res) => {
   try {
     const review = await Review.findByPk(req.params.id);
-    if (!review) return res.status(404).json({ message: "Review not found" });
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
     await review.destroy();
     res.json({ message: "Review deleted successfully" });
   } catch (error) {

@@ -22,12 +22,8 @@ export const getRestaurantById = async (req, res) => {
 
 export const createRestaurant = async (req, res) => {
   try {
-    // let imagePath = null;
-    // if (req.file) {
-    //   imagePath = `/images/${req.file.filename}`;
-    // }
-
     let imagePath = req.body.image || null;
+
     if (req.file) {
       imagePath = `${req.protocol}://${req.get("host")}/uploads/${
         req.file.filename
@@ -35,12 +31,14 @@ export const createRestaurant = async (req, res) => {
     } else if (!imagePath) {
       return res.status(400).json({ message: "Image is required" });
     }
+
     const newRestaurant = await Restaurant.create({
       name: req.body.name,
       location: req.body.location,
       category: req.body.category,
       image: imagePath,
     });
+
     res.status(201).json(newRestaurant);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -50,8 +48,9 @@ export const createRestaurant = async (req, res) => {
 export const updateRestaurant = async (req, res) => {
   try {
     const restaurant = await Restaurant.findByPk(req.params.id);
-    if (!restaurant)
+    if (!restaurant) {
       return res.status(404).json({ message: "Restaurant not found" });
+    }
 
     // Siapkan data update
     let updateData = {
@@ -60,14 +59,14 @@ export const updateRestaurant = async (req, res) => {
       category: req.body.category,
     };
 
-    let imagePath = req.body.image || null;
+    let imagePath = req.body.image || restaurant.image;
     if (req.file) {
       imagePath = `${req.protocol}://${req.get("host")}/uploads/${
         req.file.filename
       }`;
-    } else if (!imagePath) {
-      imagePath = restaurant.image;
     }
+
+    updateData.image = imagePath;
 
     await restaurant.update(updateData);
     res.json(restaurant);
